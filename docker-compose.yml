@@ -1,0 +1,13 @@
+services:
+  ddns:
+    build: .
+    image: 123dns-ddns:local
+    container_name: 123dns-ddns
+    restart: unless-stopped
+    volumes:
+      - ./config/config.yaml:/config/config.yaml:ro
+    environment:
+      TZ: Europe/London
+      # Optional: override keys from the host instead of the YAML file.
+      # DDNS_API_KEY: ${DDNS_API_KEY:-}
+      # DDNS_API_SECRET: ${DDNS_API_SECRET:-}

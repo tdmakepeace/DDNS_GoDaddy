@@ -1,0 +1,34 @@
+# 123DNS Dynamic DNS agent
+# Copy this file to config.yaml and fill in the GoDaddy API keys.
+#
+#   copy config\config.example.yaml config\config.yaml
+#   cp config/config.example.yaml config/config.yaml
+#
+# config.yaml is gitignored. Do not commit keys.
+#
+# Environment overrides (optional):
+#   DDNS_A_RECORD, DDNS_DOMAIN, DDNS_API_KEY, DDNS_API_SECRET
+# DDNS_A_RECORD may be a single host or a comma-separated list: gateway,vpn,@
+
+# A-record hosts to keep pointed at this machine's public IP.
+# "gateway" updates gateway.<domain>. Use "@" for the zone apex.
+a_records:
+  - gateway
+  # - vpn
+  # - "@"
+
+# Single-record configs can still use a_record: gateway
+
+# Registered domain / DNS zone (for .co.uk set example.co.uk).
+domain: example.com
+
+# GoDaddy Production API key pair from https://developer.godaddy.com/keys
+# (use Production / Live, not OTE).
+keys:
+  api_key: CHANGE_ME_API_KEY
+  api_secret: CHANGE_ME_API_SECRET
+
+# Optional
+ttl: 600                 # seconds (GoDaddy minimum is 600)
+interval_seconds: 300    # how often to check the public IP
+api_base: https://api.godaddy.com
