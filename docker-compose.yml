@@ -1,8 +1,8 @@
 services:
   ddns:
     build: .
-    image: 123dns-ddns:local
-    container_name: 123dns-ddns
+    image: godaddy-ddns:local
+    container_name: godaddy-ddns
     restart: unless-stopped
     volumes:
       - ./config/config.yaml:/config/config.yaml:ro
